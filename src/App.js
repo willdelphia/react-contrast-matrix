@@ -1,24 +1,41 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import { useState } from "react";
+import ColorList from "./components/ColorList.js";
 
 function App() {
+  const [colors, setColors] = useState(["#000000", "#ffffff"]);
+
+  function updateColor(index, color) {
+    const newColors = [...colors];
+    newColors[index] = color;
+    setColors(newColors);
+  }
+
+  function deleteColor(index) {
+    const newColors = [...colors];
+    newColors.splice(index, 1);
+    setColors(newColors);
+  }
+
+  function duplicateColor(index) {
+    const newColors = [...colors];
+    newColors.splice(index, 0, newColors[index]);
+    setColors(newColors);
+  }
+
+  const colorModifiers = {
+    updateColor,
+    deleteColor,
+    duplicateColor,
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+    <>
+      <header>
+        <h1>Contrast Matrix</h1>
       </header>
-    </div>
+      <ColorList colorModifiers={colorModifiers} colors={colors} />
+    </>
   );
 }
 
