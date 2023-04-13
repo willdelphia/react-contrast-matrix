@@ -51,7 +51,7 @@ function App() {
         setMinContrast={setMinContrast}
       />
       <Matrix colors={colors} minContrast={minContrast} />
-      <div style={{ textAlign: "center" }}>
+      <div style={{ textAlign: "center", marginBottom: "3rem" }}>
         By Will Delphia, written in React. <br />
         <a href="https://contrast-matrix.netlify.app/">Original Vue Version</a>
       </div>
