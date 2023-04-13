@@ -16,6 +16,18 @@ button, input[type="text"], input[type="color"]{
   border-radius: 3px;
 }
 
+button {
+  background: white;
+  height: 100%;
+  padding: .3rem .8rem;
+
+}
+
+button:not(:disabled):hover{
+  background: black;
+  color: white;
+}
+
 .color-list {
   list-style: none;
 }
@@ -47,8 +59,21 @@ button, input[type="text"], input[type="color"]{
   display: flex; 
   flex-direction: column;
   gap: .2rem;
+  padding: 0;
 }
 
+.action-row {
+  margin: auto;
+  max-width: 600px;
+  display: flex;
+  justify-content: flex-end;
+  margin-top: .2rem;
+}
+
+.action-row  button{
+  height: 28px;
+  padding: .3rem .8rem;
+}
 .color-input {
   grid-area: color-input;
   height: 20pz;
@@ -62,8 +87,6 @@ button, input[type="text"], input[type="color"]{
   padding-left: .4rem;
   font-family: 'Courier New', Courier, monospace;
   font-weight: 600;
-
-
 }
 
 .duplicate-button {
@@ -74,8 +97,82 @@ button, input[type="text"], input[type="color"]{
   grid-area: delete;
 }
 
-.button {
+#min-contrast-control {
+  margin: auto;
   background: white;
-  height: 100%;
+  max-width: 600px;
+  margin-top: 1rem;
+  padding: .4rem;
+  border-radius: 4px;
+  border: 1px solid rgb(159, 159, 159);
+  display: flex;
+  gap: .5rem;
+}
 
+.min-contrast-readout {
+  flex: 1;
+}
+
+.matrix-container {
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+
+.matrix-table {
+  border-collapse: collapse;
+  margin: auto;
+}
+.matrix-table th, .matrix-table td  {
+  border: 2px solid rgb(172, 172, 172);
+}
+
+.matrix-table th, .matrix-table td  {
+  padding: .5rem;
+}
+
+.matrix-table th {
+  font-family: 'Courier New', Courier, monospace;
+  font-weight: 700;
+}
+
+.contrast-cell {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: .2rem;
+}
+
+.outer-pip {
+  width: 40px;
+  height: 40px;
+  border-radius: 3px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.inner-pip {
+  width: 20px;
+  height: 20px; 
+  border-radius: 3px;
+}
+
+.pass-chip {
+  background: rgb(20, 216, 20);
+  color: black;
+  outline: black solid 1px;
+}
+
+.fail-chip {
+  background: rgb(231, 42, 42);
+  color: rgb(255, 255, 255);
+  outline: black solid 1px;
+}
+
+.pass-chip, .fail-chip {
+  border-radius: 3px;
+  font-size: .8rem;
+  font-weight: 500;
+  text-align: center;
+  padding: .1rem .2rem;
 }
